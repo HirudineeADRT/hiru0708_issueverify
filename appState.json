@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "hiru0708_issueverify/lambda1.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "let AWS = require('aws-sdk');\nconst ddb = new AWS.DynamoDB.DocumentClient();\n\nexports.handler = function (event, context, callback) {\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "config": {
           "runtime": "nodejs8.10",
           "handler": "handler",
@@ -105,22 +105,22 @@
           "memory": 128,
           "layers": []
         },
-        "triggers": []
+        "triggers": [
+          {
+            "resourceName": "apigusEast1TestAPItestget",
+            "config": {}
+          }
+        ]
       }
     },
-    "deletedFiles": [
-      "hiru0708_issueverify/lambda.js",
-      "hiru0708_issueverify/lambda1-1.js",
-      "hiru0708_issueverify/lambda1-1-1.js",
-      "hiru0708_issueverify/sub"
-    ],
+    "deletedFiles": [],
     "rootNode": "34fd34ca-16fa-443e-bea5-a80e9c7279eb",
     "openFiles": [
       "86262b5b-8e80-49e3-a43a-fb830cd54845",
       "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
       "09a83db4-e549-443e-ba3b-a3273bc3f190"
     ],
-    "currentFileId": "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
+    "currentFileId": "09a83db4-e549-443e-ba3b-a3273bc3f190",
     "resources": {
       "apigusEast1TestAPItestget": {
         "name": "apigusEast1TestAPItestget",
@@ -150,8 +150,41 @@
           "enableCORS": false,
           "stageMode": 1,
           "stageName": "Test",
-          "stageDeploymentId": "sicg19",
+          "stageDeploymentId": "3nt4l8",
           "mode": 1
+        }
+      },
+      "ddbBTMenu": {
+        "name": "ddbBTMenu",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 1,
+          "operation": "get",
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:318300609668:table/BTMenu",
+            "name": "BTMenu",
+            "partitionKey": "itemCode",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 1
+          },
+          "isGlobalEditMode": false,
+          "parameters": {
+            "Key": {
+              "itemCode": "id"
+            },
+            "Item": {},
+            "ExpressionAttributeValues": {}
+          },
+          "triggerParams": {},
+          "validator": {
+            "validatableFields": {},
+            "validity": true
+          },
+          "valid": true
         }
       }
     },
@@ -170,7 +203,15 @@
       }
     ],
     "packageJSON": {
-      "dependencies": {}
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
     }
   },
   "PROJECT_META": {
@@ -180,7 +221,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1565156654447
+    "lastSave": 1565166344567
   },
   "VCS_STATE": {
     "provider": "GitHub",
