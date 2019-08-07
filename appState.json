@@ -8,7 +8,8 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "09a83db4-e549-443e-ba3b-a3273bc3f190"
+          "09a83db4-e549-443e-ba3b-a3273bc3f190",
+          "655c9935-5a86-4479-9734-033b24e97604"
         ],
         "isRemovable": false,
         "filePath": "hiru0708_issueverify"
@@ -16,12 +17,12 @@
       "09a83db4-e549-443e-ba3b-a3273bc3f190": {
         "id": "09a83db4-e549-443e-ba3b-a3273bc3f190",
         "parent": "34fd34ca-16fa-443e-bea5-a80e9c7279eb",
-        "name": "lambda.js",
+        "name": "lambda1.js",
         "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "hiru0708_issueverify/lambda.js",
+        "filePath": "hiru0708_issueverify/lambda1.js",
         "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "config": {
           "runtime": "nodejs8.10",
@@ -35,15 +36,91 @@
             "resourceName": "apigusEast1TestAPItestget",
             "config": {}
           }
-        ]
+        ],
+        "testCases": {
+          "07b695e7-741c-4dc0-bc48-479c4592e55c": {
+            "id": "07b695e7-741c-4dc0-bc48-479c4592e55c",
+            "name": "Test event",
+            "functionId": "09a83db4-e549-443e-ba3b-a3273bc3f190",
+            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
+            "eventTemplate": "hello-world"
+          }
+        }
+      },
+      "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1": {
+        "id": "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
+        "parent": "655c9935-5a86-4479-9734-033b24e97604",
+        "name": "lambda1-1.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "hiru0708_issueverify/subedit/lambda1-1.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [],
+        "testCases": {
+          "08ec1a67-ed50-40f0-962b-03e72c83c6a6": {
+            "id": "08ec1a67-ed50-40f0-962b-03e72c83c6a6",
+            "name": "Test event",
+            "functionId": "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
+            "event": "{\r\n    \"body\": \"eyJ0ZXN0IjoiYm9keSJ9\",\r\n    \"resource\": \"/{proxy+}\",\r\n    \"path\": \"/path/to/resource\",\r\n    \"httpMethod\": \"POST\",\r\n    \"isBase64Encoded\": true,\r\n    \"queryStringParameters\": {\r\n        \"foo\": \"bar\"\r\n    },\r\n    \"pathParameters\": {\r\n        \"proxy\": \"/path/to/resource\"\r\n    },\r\n    \"stageVariables\": {\r\n        \"baz\": \"qux\"\r\n    },\r\n    \"headers\": {\r\n        \"Accept\": \"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\",\r\n        \"Accept-Encoding\": \"gzip, deflate, sdch\",\r\n        \"Accept-Language\": \"en-US,en;q=0.8\",\r\n        \"Cache-Control\": \"max-age=0\",\r\n        \"CloudFront-Forwarded-Proto\": \"https\",\r\n        \"CloudFront-Is-Desktop-Viewer\": \"true\",\r\n        \"CloudFront-Is-Mobile-Viewer\": \"false\",\r\n        \"CloudFront-Is-SmartTV-Viewer\": \"false\",\r\n        \"CloudFront-Is-Tablet-Viewer\": \"false\",\r\n        \"CloudFront-Viewer-Country\": \"US\",\r\n        \"Host\": \"1234567890.execute-api.us-east-1.amazonaws.com\",\r\n        \"Upgrade-Insecure-Requests\": \"1\",\r\n        \"User-Agent\": \"Custom User Agent String\",\r\n        \"Via\": \"1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)\",\r\n        \"X-Amz-Cf-Id\": \"cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==\",\r\n        \"X-Forwarded-For\": \"127.0.0.1, 127.0.0.2\",\r\n        \"X-Forwarded-Port\": \"443\",\r\n        \"X-Forwarded-Proto\": \"https\"\r\n    },\r\n    \"requestContext\": {\r\n        \"accountId\": \"123456789012\",\r\n        \"resourceId\": \"123456\",\r\n        \"stage\": \"prod\",\r\n        \"requestId\": \"c6af9ac6-7b61-11e6-9a41-93e8deadbeef\",\r\n        \"requestTime\": \"09/Apr/2015:12:34:56 +0000\",\r\n        \"requestTimeEpoch\": 1428582896000,\r\n        \"identity\": {\r\n            \"cognitoIdentityPoolId\": null,\r\n            \"accountId\": null,\r\n            \"cognitoIdentityId\": null,\r\n            \"caller\": null,\r\n            \"accessKey\": null,\r\n            \"sourceIp\": \"127.0.0.1\",\r\n            \"cognitoAuthenticationType\": null,\r\n            \"cognitoAuthenticationProvider\": null,\r\n            \"userArn\": null,\r\n            \"userAgent\": \"Custom User Agent String\",\r\n            \"user\": null\r\n        },\r\n        \"path\": \"/prod/path/to/resource\",\r\n        \"resourcePath\": \"/{proxy+}\",\r\n        \"httpMethod\": \"POST\",\r\n        \"apiId\": \"1234567890\",\r\n        \"protocol\": \"HTTP/1.1\"\r\n    }\r\n}",
+            "eventTemplate": "apigateway-aws-proxy"
+          }
+        }
+      },
+      "655c9935-5a86-4479-9734-033b24e97604": {
+        "id": "655c9935-5a86-4479-9734-033b24e97604",
+        "parent": "34fd34ca-16fa-443e-bea5-a80e9c7279eb",
+        "name": "subedit",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
+          "86262b5b-8e80-49e3-a43a-fb830cd54845"
+        ],
+        "isRemovable": true,
+        "filePath": "hiru0708_issueverify/subedit"
+      },
+      "86262b5b-8e80-49e3-a43a-fb830cd54845": {
+        "id": "86262b5b-8e80-49e3-a43a-fb830cd54845",
+        "parent": "655c9935-5a86-4479-9734-033b24e97604",
+        "name": "lambda1-1-1.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "hiru0708_issueverify/subedit/lambda1-1-1.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": []
       }
     },
-    "deletedFiles": [],
+    "deletedFiles": [
+      "hiru0708_issueverify/lambda.js",
+      "hiru0708_issueverify/lambda1-1.js",
+      "hiru0708_issueverify/lambda1-1-1.js",
+      "hiru0708_issueverify/sub"
+    ],
     "rootNode": "34fd34ca-16fa-443e-bea5-a80e9c7279eb",
     "openFiles": [
+      "86262b5b-8e80-49e3-a43a-fb830cd54845",
+      "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
       "09a83db4-e549-443e-ba3b-a3273bc3f190"
     ],
-    "currentFileId": "09a83db4-e549-443e-ba3b-a3273bc3f190",
+    "currentFileId": "b5ebabfb-94b7-4a94-bca0-6fe6d9c23fa1",
     "resources": {
       "apigusEast1TestAPItestget": {
         "name": "apigusEast1TestAPItestget",
@@ -98,12 +175,12 @@
   },
   "PROJECT_META": {
     "projectName": "hiru0708_issueverify",
-    "projectDescription": "",
-    "projectVersion": "1.0.0",
+    "projectDescription": "this is a edited",
+    "projectVersion": "1.1.1",
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1565154753587
+    "lastSave": 1565156654447
   },
   "VCS_STATE": {
     "provider": "GitHub",
